@@ -1,6 +1,8 @@
 # AngularUI
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.2.0.
+This acts as the Frontend for AffableProject_Backend.
+The frontend calls the Flask server API (in AffableProject_Backend) to get real-time predictions.
 
 ## Development server
 

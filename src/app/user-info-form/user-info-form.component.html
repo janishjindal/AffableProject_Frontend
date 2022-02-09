@@ -1,0 +1,149 @@
+<body>
+  <br>
+<h1 style="text-align: center; font-family: cursive;" >Brand-Influencer Detection Program</h1>
+  <div class="grid-container">
+    <div class="grid-child">
+      <h1 style="text-align: center; font-family: cursive;">Enter the instagram profile details</h1>
+      <form (ngSubmit)="onSubmit()" #UserInfoForm="ngForm">        
+          <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" class="form-control" id="username"
+                   [(ngModel)]="user.username" name="username">
+          </div>
+
+          <div class="form-group">
+            <label for="biography">Biography</label>
+            <input type="text" class="form-control" id="biography"
+                  [(ngModel)]="user.biography" name="biography">
+          </div>
+          
+          <div>
+              <label for="mediaCount">Media Count</label>
+              <input type="number" class="form-control" id="mediaCount"
+                    [(ngModel)]="user.mediaCount" name="mediaCount">
+          </div>
+
+          <div class="form-group">
+            <label for="cityId">City Id</label>
+            <input type="number" class="form-control" id="cityId"
+                  [(ngModel)]="user.cityId" name="cityId">
+          </div>
+
+          <div class="form-group">
+            <label for="latitude">Latitude</label>
+            <input type="number" class="form-control" id="latitude"
+                  [(ngModel)]="user.latitude" name="latitude">
+          </div>
+
+          <div class="form-group">
+            <label for="longitude">Longitude</label>
+            <input type="number" class="form-control" id="longitude"
+                  [(ngModel)]="user.longitude" name="longitude">
+          </div>
+
+          <div class="form-group">
+            <label for="zip">Zip</label>
+            <input type="number" class="form-control" id="zip"
+                   [(ngModel)]="user.zip" name="zip">
+          </div>
+          
+          <div class="form-group">
+            <label for="contactPhoneNumber">Contact Phone No.</label>
+            <input type="number" class="form-control" id="contactPhoneNumber"
+                  [(ngModel)]="user.contactPhoneNumber" name="contactPhoneNumber">
+          </div>
+      
+          <div class="form-group">
+            <label for="followingcount">Following Count</label>
+            <input type="number" class="form-control" id="followingCount"
+                  [(ngModel)]="user.followingCount" name="followingCount">
+          </div>
+      
+          <div class="form-group">
+            <label for="followercount">Follower Count</label>
+            <input type="number" class="form-control" id="followerCount"
+                  [(ngModel)]="user.followerCount" name="followerCount">
+          </div>
+    
+            <div class="form-group">
+              <label for="usertagsCount">User Tags Count</label>
+              <input type="number" class="form-control" id="usertagsCount"
+                    [(ngModel)]="user.usertagsCount" name="usertagsCount">          
+          </div>          
+          
+          <div class="form-group">
+            <label for="isBusiness">Is Business?</label>
+            <select class="dropdown" id="isBusiness"
+                [(ngModel)]="user.isBusiness" name="isBusiness">
+              <option class="opt" value="False" selected> False </option>
+              <option class="opt" value="True"> True </option>
+              </select>  
+          </div>
+
+          <div class="form-group">
+            <label for="externalUrl">External Url link</label>
+            <input type="url" class="form-control" id="externalUrl"
+                  [(ngModel)]="user.externalUrl" name="externalUrl">
+          </div>
+
+          <div class="form-group">
+            <label for="category">Category</label>
+            <input type="text" class="form-control" id="category"
+                  [(ngModel)]="user.category" name="category">
+          </div>
+
+          <div class="form-group">
+            <label for="geoMediaCount">geoMediaCount</label>
+            <input type="number" class="form-control" id="geoMediaCount"
+                  [(ngModel)]="user.geoMediaCount" name="geoMediaCount">
+          </div>
+
+          <div class="form-group">
+            <label for="shoppablePostsCount">shoppablePostsCount</label>
+            <input type="number" class="form-control" id="shoppablePostsCount"
+                  [(ngModel)]="user.shoppablePostsCount" name="shoppablePostsCount">
+          </div>
+
+          <div class="form-group">
+            <label for="followingTagCount">followingTagCount</label>
+            <input type="number" class="form-control" id="followingTagCount"
+                  [(ngModel)]="user.followingTagCount" name="followingTagCount">
+          </div>
+
+          <div class="form-group">
+            <label for="picture">Picture URL</label>
+            <input type="url" class="form-control" id="picture"
+                  [(ngModel)]="user.picture" name="picture">
+          </div>
+
+          <div class="form-group">
+            <label for="imageLabels">Image Labels</label>
+            <input type="text" class="form-control" id="imageLabels"
+                  [(ngModel)]="user.imageLabels" name="imageLabels">
+          </div>
+         
+          <div class="form-group">
+            <label for="hasEmail">Has Email?</label>
+            <select class="dropdown" id="hasEmail"
+                [(ngModel)]="user.hasEmail" name="hasEmail">              
+              <option class="opt" value="False" selected> False </option>
+              <option class="opt" value="True"> True </option>
+              </select>  
+          </div>          
+          <br>
+            <button type="submit" class="btn btn-success" [disabled]="!UserInfoForm.form.valid" 
+              (click)="sendUserInfo()">Submit</button>
+          
+        </form>
+    </div>
+
+    <div class="grid-child" [hidden]="!submitted">      
+        <h1 style="text-align: center;font-family: cursive;">Prediction </h1>
+        <br>
+        <h3 class="pred">Username : {{ predictionInfo.username }}</h3>      
+        <br>
+        <h3 class="pred">isBrand : {{ predictionInfo.isBrand }}</h3>       
+        <br>                  
+      </div>      
+    </div>
+  </body>
